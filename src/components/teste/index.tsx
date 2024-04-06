@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Modal, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Modal, Alert, StatusBar } from "react-native";
 import { api } from "../../services/api";
 import { FlatList } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -30,20 +30,21 @@ export const Teste = () => {
     async function enviaProduto() {
         try {
             const response:any = await api.post("/produto/cadastrar", data);
-//            console.log(response);
             if(response.status === 200 ){
-                Alert.alert("Sucesso", "Produto cadastrado com sucesso!");
-            }else{
-                Alert.alert("Erro", "Falha ao cadastrar o produto. Por favor, tente novamente.");
+                Alert.alert(`Produto cadastrado com sucesso!`,` codigo: `+response.data.codigo);
+                setData(null);
+                setProd(null);
+                setVisible(false)
             }
-
-
-        } catch (err) {
-            console.log(err);
-            Alert.alert("Erro", "Falha ao enviar o produto. Por favor, tente novamente.");
+        } catch (err:any) {
+            if (err.response && err.response.status === 500 && err.response.data.err === "Produto já cadastrado com esse SKU") {
+                Alert.alert("Erro", "Produto já cadastrado com esse SKU.");
+            } else {
+                console.log(err);
+                Alert.alert("Erro", "Falha ao enviar o produto. Por favor, tente novamente.");
+            }
         }
     }
-    
 
 
 
@@ -105,8 +106,13 @@ export const Teste = () => {
     };
 
     return (
+       
+
+        
         <View style={{ flex: 1, backgroundColor: "#fff", padding: 10 }}>
+             <StatusBar barStyle="light-content" />
             <TextInput
+
                 style={{ marginVertical: 10, borderWidth: 1, borderColor: "black", padding: 5 }}
                 onChangeText={(v) => busca(parseInt(v))}
             />
@@ -126,5 +132,6 @@ export const Teste = () => {
                 </View>
             </Modal>
         </View>
+     
     );
 };
