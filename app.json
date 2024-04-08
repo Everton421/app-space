@@ -20,7 +20,8 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon-intersig.png",
-        "backgroundColor": "#000000"
+        "backgroundColor": "#000000",
+        "permissions": ["INTERNET"]
       },
       "package": "com.everton421.myapp"
     },
