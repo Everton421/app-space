@@ -31,7 +31,6 @@ export const acertoProduto = () => {
     function closeModal() {
         setVisible(false);
         setSelectedSetor(undefined);
-
     }
 
 

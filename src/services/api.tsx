@@ -2,5 +2,8 @@
 import axios from "axios";
 
     export const api = axios.create({
-        baseURL:"http://100.108.116.119:3000"
+        baseURL:"http://000000000000:3000",
+        headers:{
+            "authorization": "token 0000000000",
+        }
     })

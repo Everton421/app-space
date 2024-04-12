@@ -7,6 +7,9 @@ export const Configurações = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string>()
 
+    
+
+
     async function connect() {
         try {
             const response = await api.get('/');
