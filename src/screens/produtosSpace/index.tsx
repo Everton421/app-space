@@ -4,6 +4,7 @@ import { FlatList, TextInput } from "react-native-gesture-handler"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { api } from "../../services/api";
 
+
 export const ProdutosSpace = ()=>{
     const [pesquisa, setPesquisa] = useState();
     const [produtos, setProdutos] = useState<any>();
@@ -66,7 +67,7 @@ export const ProdutosSpace = ()=>{
         )
     }
     return(
-        <SafeAreaView style={{ backgroundColor: '#e9ecf1' }} >
+        <View style={{ backgroundColor: '#e9ecf1' }} >
 
         <View style={{backgroundColor:'#333', alignItems:'center', padding:8 , elevation:9}} >
             <TextInput  placeholder="pesquisa" onChangeText={(value) => adicionaPesquisa(value)} 
@@ -80,6 +81,6 @@ export const ProdutosSpace = ()=>{
         />
 
        
-    </SafeAreaView>
+    </View>
     )
 }

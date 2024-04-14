@@ -51,7 +51,8 @@ export const Home = ({navigation}:any) => {
     );
 
   const data = [
-     { "nome": "enviaProdutos",
+ 
+    { "nome": "enviaProdutos",
     "icon":<AntDesign name="arrowup" size={24} color="black" />
      }, 
      

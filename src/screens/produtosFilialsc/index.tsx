@@ -66,7 +66,7 @@ export const ProdutosFilialsc = ()=>{
         )
     }
     return(
-        <SafeAreaView style={{ backgroundColor: '#e9ecf1' }} >
+        <View style={{ backgroundColor: '#e9ecf1' }} >
 
         <View style={{backgroundColor:'#333', alignItems:'center', padding:8 , elevation:9}} >
             <TextInput  placeholder="pesquisa" onChangeText={(value) => adicionaPesquisa(value)} 
@@ -80,6 +80,6 @@ export const ProdutosFilialsc = ()=>{
         />
 
        
-    </SafeAreaView>
+    </View>
     )
 }
